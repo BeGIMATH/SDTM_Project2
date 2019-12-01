@@ -1,3 +1,5 @@
+import sys 
+sys.path.append("../build/lib")
 import tp4 
 
 def f():

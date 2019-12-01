@@ -1,5 +1,9 @@
+import sys 
+sys.path.append("../build/lib")
+
+
 import tkinter as tk
-from .build  import tp4
+import tp4
 from tkinter import messagebox as mBox
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
