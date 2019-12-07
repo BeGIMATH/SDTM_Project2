@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/test1.dir/test1.c.o  -o test1  -L/home/begi/Desktop/SDTM/PS4/build/lib -Wl,-rpath,/home/begi/Desktop/SDTM/PS4/build/lib ../lib/libtp4.so.1.3.4 -lm 

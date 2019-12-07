@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/begi/Desktop/SDTM/PS4/lib/tp4.c
+tp4.h
+/home/begi/Desktop/SDTM/PS4/lib/tp4.h
+stdio.h
+-
+stdlib.h
+-
+assert.h
+-
+math.h
+-
+
+/home/begi/Desktop/SDTM/PS4/lib/tp4.h
+

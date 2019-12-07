@@ -1,28 +1,17 @@
 import sys 
 sys.path.append("../build/lib")
-
-
 import tkinter as tk
-
 import tp4
 from tkinter import messagebox as mBox
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 from math import sqrt
-import tkinter.tix as tix
-
-
 from matplotlib.patches import FancyArrowPatch
 from mpl_toolkits.mplot3d import proj3d
-
-
-
-
 import matplotlib
 import matplotlib.pyplot as plt
 matplotlib.use("TkAgg")
 from matplotlib.figure import Figure 
-from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 
@@ -203,13 +192,13 @@ tk.Entry(win1,textvariable=XX_3,width=4,state="readonly").grid(row=3,column=3,pa
 
 Dot = tk.DoubleVar()
 Dot.set(0)
-tk.Label(win1,text="<v1,v2>",bg="sky blue").grid(row=0,column=6,padx=10,pady=10)
+#tk.Label(win1,text="<v1,v2>",bg="sky blue").grid(row=0,column=6,padx=10,pady=10)
 
-tk.Entry(win1,textvariable=Dot,width=3,state="readonly").grid(row=1,column=6,padx=10,pady=10)
+tk.Entry(win1,textvariable=Dot,width=4,state="readonly").grid(row=1,column=6,padx=10,pady=10)
 
 theta = tk.DoubleVar()
 theta.set(0)
-tk.Entry(win1,textvariable=theta,width=3,state="readonly").grid(row=3,column=6,padx=10,pady=10)
+tk.Entry(win1,textvariable=theta,width=4,state="readonly").grid(row=3,column=6,padx=10,pady=10)
 
 def add_vectors():
     v1 = tp4.Vector_create(x_1.get(),x_2.get(),x_3.get())
@@ -243,12 +232,8 @@ def angle():
     v2 = tp4.Vector_create(X_1.get(),X_2.get(),X_3.get())
     theta.set(tp4.Vector_angle(v1,v2))
 
-
-
-
-
 scal=tk.Button(win1, text='<.> ', command=dot,bg="deep sky blue")
-scal.grid(column=5,row=3,padx=10,pady=10)
+scal.grid(column=6,row=0,padx=10,pady=10)
 CreateToolTip(scal,"Compute the scalar product!")
 
 vec =tk.Button(win1, text=' x  ', command=cross_prod,bg="deep sky blue")
@@ -256,17 +241,15 @@ vec.grid(column=5,row=2,padx=10,pady=10)
 CreateToolTip(vec,"Compute the vectorial product!")
 
 add = tk.Button(win1, text=' +  ', command=add_vectors,bg="deep sky blue")
-add.grid(column=5,row=1,padx=10,pady=10)
+add.grid(column=5,row=3,padx=10,pady=10)
 CreateToolTip(add,"Add vectors, coordinate by coordinate!")
 ang = tk.Button(win1, text= '\u03F4(,)',command=angle,bg="deep sky blue")
 ang.grid(column=6,row=2,padx=10,pady=10)
 CreateToolTip(ang,"Compute the angle between two vectors!")
 #tk.Button(win1,text="Rotate",command=rotate).grid(column=5,row=1)
 
-win2 = tk.LabelFrame(window)
-win2.grid(columnspan=2,row=1, sticky="nsew")
-
-
+win2 = tk.Frame(window)
+win2.grid(column=0,row=1, sticky="nsew")
 
 def plot_vectors():
 
@@ -307,9 +290,6 @@ def plot_vectors():
     a = Arrow3D([o[0], u0[0]], [o[1], u0[1]], [o[2], u0[2]], mutation_scale=20, arrowstyle='-|>', color='k')
     ax.add_artist(a)
 
-
-
-
     text_options = {'horizontalalignment': 'center',
                     'verticalalignment': 'center',
                     'fontsize': 14}
@@ -331,22 +311,23 @@ def plot_vectors():
     #ax.set_ylim(-10,10)
     #ax.set_xlim(-10,10)
     # show figure
+    ax.margins(0.005)
     ax.view_init(elev=-150, azim=0)
     #ax.contour3D(X,Y,Z)
-    
-    #ax.set_axis_off()
+    if t1.get() == False:
+        ax.set_axis_off()
     
     plt.show()
-
-        
-
-
-
-    
     canvas.get_tk_widget().grid(row=0,column=0)
-    print(v1)
 
-pllot = tk.Button(win1,text="Plot",command=plot_vectors,bg="deep sky blue")
-pllot.grid(column=5,row=0)
+pllot = tk.Button(win1,text="Plot",command=plot_vectors,bg="deep sky blue",height=4)
+pllot.grid(column=5,rowspan=2,row=0)
 CreateToolTip(pllot,"Plot the vectors in 3d!")
+
+t1 = tk.BooleanVar()
+
+axesCheck=tk.Checkbutton(win2, 
+    text="Axes ON/OFF", 
+    variable=t1)
+axesCheck.grid(column=0,row=1)  
 window.mainloop()

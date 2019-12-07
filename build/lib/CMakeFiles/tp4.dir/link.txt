@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC   -shared -Wl,-soname,libtp4.so.1 -o libtp4.so.1.3.4 CMakeFiles/tp4.dir/tp4.c.o -lm 

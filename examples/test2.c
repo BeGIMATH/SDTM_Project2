@@ -14,7 +14,7 @@ Vector *f()
   free(val_v);
   Vector_destroy(v2);
   Vector_destroy(v1);
-  Vector_destroy(v);
+  //Vector_destroy(v);
   return v;
 }
 

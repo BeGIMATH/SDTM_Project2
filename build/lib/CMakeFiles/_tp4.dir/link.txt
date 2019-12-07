@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC   -shared  -o _tp4.so CMakeFiles/_tp4.dir/tp4PYTHON_wrap.c.o CMakeFiles/_tp4.dir/tp4.c.o /usr/lib/x86_64-linux-gnu/libpython3.6m.so 
